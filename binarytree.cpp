@@ -40,6 +40,31 @@ void postorder(struct Node* root){
     
 }
 
+void levelorder(struct Node* root){
+    if(root==NULL){
+        return;
+    }
+    queue<Node*> q;
+    q.push(root);
+    q.push(NULL);
+    while(!q.empty()){
+        Node* node = q.front();
+        q.pop();
+        if(node!=NULL){
+            cout<<node->data<<" ";
+            if(node->left!=NULL){
+                q.push(node->left);
+            }
+            if(node->right!=NULL){
+                q.push(node->right);
+            }
+        }
+        else if(!q.empty()){
+             q.push(NULL);
+        }
+    }
+}
+
 int main(){
       struct Node* root = new Node(1);
       root-> left = new Node(2);
@@ -53,4 +78,6 @@ int main(){
       inorder(root);
       cout<<"\n";
       postorder(root);
+      cout<<"\n";
+      levelorder(root);
 }
