@@ -25,9 +25,9 @@ void inorder(struct Node* root){
     if(root==NULL){
         return;
     }
-    preorder(root->left);
+    inorder(root->left);
     cout<<root->data<<" ";
-    preorder(root->right);
+    inorder(root->right);
 }
 
 void postorder(struct Node* root){
